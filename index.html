@@ -373,10 +373,10 @@ Output format:
       prompts: [
         {
           id: cryptoId(),
-          title: "Orchestrator Default",
+          title: "Default team lead",
           tags: ["core","orchestrator"],
           content:
-`You are my Personal AI Lab Orchestrator.
+`You are my Personal AI Lab Team lead.
 Always respond as:
 1) What I should do next (max 7 bullets)
 2) The exact commands/snippets
@@ -674,7 +674,7 @@ Keep it crisp and executive.`
 
       agents.forEach((a)=>{
         const enabledBadge = a.enabled ? `<span class="badge ok">Enabled</span>` : `<span class="badge bad">Disabled</span>`;
-        const endpointBadge = a.endpoint ? `<span class="badge warn">Endpoint set</span>` : `<span class="badge">No endpoint</span>`;
+        const endpointBadge = a.service address ? `<span class="badge warn">Endpoint set</span>` : `<span class="badge">No service address</span>`;
 
         const el = document.createElement("div");
         el.className = "item";
@@ -836,10 +836,10 @@ Keep it crisp and executive.`
             const now = new Date().toISOString();
 
             // SIMULATED OUTPUT (local mode)
-            // If endpoint is set, you can later replace this with fetch().
+            // If service address is set, you can later replace this with fetch().
             let output = "";
             let status = "ok";
-            let endpointUsed = agent.endpoint || "";
+            let endpointUsed = agent.service address || "";
 
             try{
               output = makeSimulatedOutput(agent, promptObj, input);
@@ -965,7 +965,7 @@ Keep it crisp and executive.`
           <label>Title</label>
           <input id="pTitle" value="${escapeHtml(p.title)}" />
           <label>Tags (comma-separated)</label>
-          <input id="pTags" value="${escapeHtml((p.tags||[]).join(", "))}" placeholder="dev, strategy, orchestrator" />
+          <input id="pTags" value="${escapeHtml((p.tags||[]).join(", "))}" placeholder="dev, strategy, team lead" />
           <label>Prompt Content</label>
           <textarea id="pContent">${escapeHtml(p.content)}</textarea>
           <div class="row">
@@ -1148,7 +1148,7 @@ Keep it crisp and executive.`
               </div>
               <div class="note" style="margin-top:8px;">
                 <span class="mono">${escapeHtml(fmtTime(r.time))}</span>
-                ${r.endpointUsed ? ` <span class="sep">•</span> endpoint: <span class="mono">${escapeHtml(r.endpointUsed)}</span>` : ""}
+                ${r.endpointUsed ? ` <span class="sep">•</span> service address: <span class="mono">${escapeHtml(r.endpointUsed)}</span>` : ""}
               </div>
             </div>
             <div class="actions">
@@ -1909,7 +1909,7 @@ Output:
       links: [
         { title: "GitHub Repo", url: "https://github.com/saifsoub/future-tax-innovator", desc: "Main lab repository (code + docs).", icon: "🐙" },
         { title: "Copilot Agents", url: "https://github.com/saifsoub/future-tax-innovator/tree/main/.github/agents", desc: "Agent configs inside the repo.", icon: "🤖" },
-        { title: "GitHub Pages (if enabled)", url: "https://saifsoub.github.io/future-tax-innovator/", desc: "Public launcher endpoint.", icon: "🌐" },
+        { title: "GitHub Pages (if enabled)", url: "https://saifsoub.github.io/future-tax-innovator/", desc: "Public launcher service address.", icon: "🌐" },
         { title: "Vercel Dashboard", url: "https://vercel.com/dashboard", desc: "Deploy / env vars / logs.", icon: "▲" }
       ],
       lastSaved: null
